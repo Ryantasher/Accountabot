@@ -10,7 +10,17 @@ from discord.ext.commands import Bot as BotBase
 from discord.ext.commands import Context
 from discord.ext.commands import CommandNotFound
 
+import os
+import logging.config
+
 from ..db import db
+
+#logging.config.fileConfig('../../logging.conf',disable_existing_loggers=False)
+basepath = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+print('%s\logging.conf' % basepath)
+logging.config.fileConfig('%s\logging.conf' % basepath,
+                          disable_existing_loggers=False)
+logger = logging.getLogger(__name__)
 
 PREFIX ="!"
 OWNER_IDS = [178282308015489026]
