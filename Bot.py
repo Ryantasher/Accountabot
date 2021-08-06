@@ -21,9 +21,6 @@ load_dotenv()
 
 #get env variables
 TOKEN = os.getenv('DISCORD_TOKEN')
-GUILD = os.getenv('DISCORD_SERVER')
-CHANNEL = os.getenv('DISCORD_CHANNEL')
-print(CHANNEL)
 
 #intents are required from discord API now
 intents = discord.Intents.all()
@@ -42,8 +39,6 @@ async def check_context(ctx):
     if str(ctx.channel) != str(CHANNEL):
         return
     await ctx.send("you're in the correct channel :)!")
-
-@box.command(name='
     
 
 
