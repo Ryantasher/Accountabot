@@ -38,7 +38,6 @@ class Ready(object):
     def all_ready(self):
         return all([getattr(self, cog) for cog in COGS])
 
-
 class Bot(BotBase):
     def __init__(self):
         self.PREFIX = PREFIX
@@ -112,16 +111,6 @@ class Bot(BotBase):
             self.stdout = self.get_channel(871231603190431814)
             self.scheduler.add_job(self.rules_reminder, CronTrigger(second="0,15,30,45"))
             self.scheduler.start()
-            
-            
-##
-##            embed= Embed(title="Now online", description="ryan is now online.")
-##            fields = [("name", "value", True),
-##                      ("Another field", "This field is next to the other one.", True),
-##                      ("A non-inline field", "This field will appear on it's own row", False)]
-##            for name, value, inline in fields:
-##                embed.add_field(name=name, value=value, inline=inline)
-##            await channel.send(embed=embed)
 
             while not self.cogs_ready.all_ready():
                 await sleep(0.5)
@@ -129,7 +118,6 @@ class Bot(BotBase):
             await self.stdout.send("Now online!")
             self.ready = True
             print("bot ready")
-
         else:
             print("bot reconnected")
 
